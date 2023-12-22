@@ -6,7 +6,7 @@ import NodeNetworkPage from './NodeNetworkPage';
 import NodeTaskPage from './NodeTaskPage';
 import PeerNodeDataPage from './PeerNodeDataPage';
 import DataPage from './DataPage';
-
+window.url = "20.248.176.33:9900"
 const App = () => {
   const [currentPage, setCurrentPage] = useState('nodeNetwork'); // Default page
 

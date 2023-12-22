@@ -12,7 +12,7 @@ const NodeTaskPage = () => {
     try {
       const removalData = { id: taskId }; // Construct the removal data
 
-      const response = await fetch(`http://20.248.176.33:9900/nodes/rdata`, {
+      const response = await fetch(`http://${window.url}/nodes/rdata`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ const NodeTaskPage = () => {
         url: newTaskUrl,
         interval: parseInt(newTaskInterval, 10),
       }))
-      const response = await fetch('http://20.248.176.33:9900/nodes/data', {
+      const response = await fetch(`http://${window.url}/nodes/data`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ const NodeTaskPage = () => {
     // Fetch the initial tasks from the API when the component mounts
     const fetchTasks = async () => {
       try {
-        const response = await fetch('http://20.248.176.33:9900/nodes/getdata');
+        const response = await fetch(`http://${window.url}/nodes/getdata`);
         
         if (response.ok) {
           let tasksData = await response.json();

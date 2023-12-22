@@ -11,7 +11,7 @@ const PeerNodeDataPage = () => {
   useEffect(() => {
     const fetchPeerNodes = async () => {
       try {
-        const response = await axios.get('http://20.248.176.33:9900/nodes');
+        const response = await axios.get(`http://${window.url}/nodes`);
         setPeerNodes(response.data);
       } catch (error) {
         console.error('Error fetching peer nodes:', error);
@@ -26,7 +26,7 @@ const PeerNodeDataPage = () => {
       const selectedNode = peerNodes.find((node) => node.peerid === peerNodeId);
       setSelectedPeerNode(selectedNode);
 
-      const response = await axios.post('http://20.248.176.33:9900/nodes/peerdata', {
+      const response = await axios.post(`http://${window.url}/nodes/peerdata`, {
         id: peerNodeId,
       });
 
@@ -38,7 +38,7 @@ const PeerNodeDataPage = () => {
 
   const handleSyncData = async (dataIdToSync) => {
     try {
-      const response = await axios.post('http://20.248.176.33:9900/collection/req', {
+      const response = await axios.post(`http://${window.url}/collection/req`, {
         id: dataIdToSync,
         peerid: selectedPeerNode.peerid,
       });

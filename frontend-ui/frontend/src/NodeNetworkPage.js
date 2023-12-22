@@ -35,7 +35,7 @@ const NodeNetworkPage = () => {
     // Fetch nodes from the API
     const fetchNodes = async () => {
       try {
-        const response = await axios.get('http://20.248.176.33:9900/nodes'); // Replace 'your_api_endpoint' with the actual API endpoint
+        const response = await axios.get(`http://${window.url}/nodes`); // Replace 'your_api_endpoint' with the actual API endpoint
         const apiNodes = response.data;
 
         // Create links from default node to each API node
@@ -61,7 +61,7 @@ const NodeNetworkPage = () => {
   const handleAddNode = async () => {
     try {
         setLoading(true)
-      const response = await fetch('http://20.248.176.33:9900/nodes/add', {
+      const response = await fetch(`http://${window.url}/nodes/add`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
